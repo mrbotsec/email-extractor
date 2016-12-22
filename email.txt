@@ -1,0 +1,17 @@
+#!/usr/bin/perl
+
+use strict;
+
+my $email_count;
+
+while (my $line = <>) { #read from file or STDIN
+  foreach my $email (split /\s+/, $line) {
+     if ( $email =~ /^[a-z0-9]+([_\\.-][a-z0-9]+)*@([a-z0-9]+([\.-][a-z0-9]+)*)+[a-z]{2,}$/i ) {
+ 		print $email . "\n";
+		$email_count++;
+	
+  }
+}
+}
+
+print "Emails Extracted: $email_count\n" ;
